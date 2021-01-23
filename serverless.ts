@@ -1,6 +1,6 @@
 import type { AWS } from "@serverless/typescript";
 
-import { hello } from "./src/functions";
+import { main } from "./src/functions";
 
 const serverlessConfiguration: AWS = {
   service: "rds-stopper",
@@ -17,16 +17,12 @@ const serverlessConfiguration: AWS = {
     profile: "personal",
     region: "ap-northeast-1",
     runtime: "nodejs12.x",
-    apiGateway: {
-      minimumCompressionSize: 1024,
-      shouldStartNameWithService: true,
-    },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
     },
     lambdaHashingVersion: "20201221",
   },
-  functions: { hello },
+  functions: { main },
 };
 
 module.exports = serverlessConfiguration;
